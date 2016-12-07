@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "149766416922",
+    "firebase_url": "https://photo-play.firebaseio.com",
+    "project_id": "photo-play",
+    "storage_bucket": "photo-play.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:149766416922:android:6783194ce8c9f65c",
+        "android_client_info": {
+          "package_name": "com.photo.editor.compression"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "149766416922-2g010b80l7qomi6i6g04lqc134evm252.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDsVw33JBN0haWj947d1w0XOMw2hxPFcQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
