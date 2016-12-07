@@ -218,36 +218,29 @@ public class ImageProcessingActivity extends Activity {
             }
             if (MaxTextureSize != 0) {
                 if (height - width >= 0 && height>=MaxTextureSize) {
-                    rg_sizes.check(R.id.rb_pixel);
-                    float aspectRatio = height /width;
-                    float actualheight =MaxTextureSize / 2;
-                    float actualWidth = actualheight / aspectRatio;
-                    tv_width.setText(actualWidth + "");
-                    tv_height.setText(actualheight + "");
-                    width = actualWidth;
-                    height = actualheight;
-                    Toast.makeText(ImageProcessingActivity.this, "Entered Image is too big,Resizing it..", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ImageProcessingActivity.this, "Please correct the dimensions of image ", Toast.LENGTH_LONG).show();
                 } else if(width - height >= 0 && width>=MaxTextureSize){
-                    rg_sizes.check(R.id.rb_pixel);
-                    float aspectRatio = width /height;
-                    float actualWidth =MaxTextureSize / 2;
-                    float actualheight = actualWidth / aspectRatio;
-                    tv_width.setText(actualWidth + "");
-                    tv_height.setText(actualheight + "");
-                    width = actualWidth;
-                    height = actualheight;
-                    Toast.makeText(ImageProcessingActivity.this, "Entered Image is too big,Resizing it..", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ImageProcessingActivity.this, "Please correct the dimensions of image ", Toast.LENGTH_LONG).show();
+                }
+                else{
+                    compressedImage = compressToFile(finalFile, width, height, seekbar.getProgress());
+                    Log.e("Tag", "Compressed Image path after" + compressedImage);
+                    Bitmap bitmap = BitmapFactory.decodeFile(compressedImage.getAbsolutePath());
+                    Log.e("Tag", "original bitmap width" + bitmap.getWidth());
+                    iv_image.setImageBitmap(bitmap);
+                    tv_size.setText("Size : " + getReadableFileSize(compressedImage.length()) + "");
+                    Toast.makeText(ImageProcessingActivity.this, "Image is stored at " + compressedImage.getAbsolutePath(), Toast.LENGTH_LONG).show();
                 }
 
+            }else {
+                compressedImage = compressToFile(finalFile, width, height, seekbar.getProgress());
+                Log.e("Tag", "Compressed Image path after" + compressedImage);
+                Bitmap bitmap = BitmapFactory.decodeFile(compressedImage.getAbsolutePath());
+                Log.e("Tag", "original bitmap width" + bitmap.getWidth());
+                iv_image.setImageBitmap(bitmap);
+                tv_size.setText("Size : " + getReadableFileSize(compressedImage.length()) + "");
+                Toast.makeText(ImageProcessingActivity.this, "Image is stored at " + compressedImage.getAbsolutePath(), Toast.LENGTH_LONG).show();
             }
-            compressedImage = compressToFile(finalFile, width, height, seekbar.getProgress());
-            Log.e("Tag", "Compressed Image path after" + compressedImage);
-            Bitmap bitmap = BitmapFactory.decodeFile(compressedImage.getAbsolutePath());
-            Log.e("Tag", "original bitmap width" + bitmap.getWidth());
-            iv_image.setImageBitmap(bitmap);
-            tv_size.setText("Size : " + getReadableFileSize(compressedImage.length()) + "");
-            Toast.makeText(ImageProcessingActivity.this, "Image is stored at " + compressedImage.getAbsolutePath(), Toast.LENGTH_LONG).show();
-
 
 //            Toast.makeText(this, "Compressed image size is " + getReadableFileSize(compressedImage.length()), Toast.LENGTH_LONG).show();
         } catch (Exception e) {
