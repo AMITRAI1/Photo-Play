@@ -18,10 +18,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-/**
- * Created by applect on 3/12/16.
- */
-
 public class ImageUtil {
     private ImageUtil() {
 

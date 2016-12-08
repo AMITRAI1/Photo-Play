@@ -42,9 +42,7 @@ import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.opengles.GL10;
 
-/**
- * Created by applect on 2/12/16.
- */
+
 
 public class ImageProcessingActivity extends Activity {
     private static final String TAG = "ImageProcessingActivity";
